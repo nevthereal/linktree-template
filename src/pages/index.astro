@@ -1,0 +1,73 @@
+---
+import Card from "../components/card.astro";
+import Chip from "../components/chip.astro";
+
+// Put all your links here
+const links: Link[] = [
+  {
+    desc: "Example Project", // The text that will be rendered
+    link: "example.com", // The link
+    icon: "fa-solid fa-home", // An icon from Font Awesome: https://fontawesome.com/search?o=r&m=free
+  },
+  {
+    desc: "Cool Project",
+    link: "example.com",
+    icon: "fa-solid fa-store",
+  },
+];
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/x-icon' href='/favicon.png' />
+    <meta name='viewport' content='width=device-width' />
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+      integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
+    />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='description' content='Useful links of Neville Brem' />
+    <meta name='author' content='Neville Brem' />
+    <meta property='og:title' content='Neville Brem' />
+    <meta property='og:image' content='favicon.png' />
+    <meta property='og:description' content='Linktree of Neville Brem' />
+    <meta property='twitter:description' content='Linktree of Neville Brem' />
+    <meta property='twitter:title' content='Neville Brem' />
+    <meta property='twitter:image' content='favicon.png' />
+    <meta name='twitter:card' content='summary' />
+    <meta name='twitter:site' content='@BremNeville' />
+    <title>Links of Neville Brem</title>
+    <style>
+      @font-face {
+        font-family: Geist;
+        src: url(/Geist.ttf);
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body
+    class='bg-[#1e1e1e] flex justify-center items-center w-screen h-screen font-[Geist] text-white'
+  >
+    <main class='w-[80%] flex flex-col gap-8'>
+      <h1 class='md:text-6xl text-4xl font-black text-center'>Your Name</h1>
+      <div class='grid justify-center gap-4'>
+        {
+          links.map(({ desc, link, icon }) => {
+            return <Card {desc} {link} {icon} />;
+          })
+        }
+      </div>
+      <div class='flex justify-center gap-8'>
+        <!-- Put some social links who have a definitive icon here: -->
+        <Chip link='youtube.com/' icon='fa-brands fa-youtube' />
+        <Chip link='github.com/' icon='fa-brands fa-github' />
+        <Chip link='x.com/' icon='fa-brands fa-x-twitter' />
+      </div>
+      <p class='text-center mx-auto'>Some additional text, like your email</p>
+    </main>
+  </body>
+</html>

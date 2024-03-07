@@ -1,0 +1,19 @@
+---
+interface Props {
+  desc: string;
+  link: string;
+  icon: string;
+}
+const { desc, link, icon } = Astro.props;
+---
+
+<a
+  href={`https://${link}`}
+  target='_blank'
+  class='bg-black/10 p-6 rounded-2xl border-white/10 border active:scale-95 duration-200 ease-in-out hover:brightness-200'
+>
+  <div class='flex gap-4 justify-between'>
+    <i class={`${icon} text-xl my-auto`}></i>
+    <h1 class='font-extrabold text-2xl'>{desc}</h1>
+  </div>
+</a>
